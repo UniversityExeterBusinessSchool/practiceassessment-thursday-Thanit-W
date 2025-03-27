@@ -1,9 +1,9 @@
 #######################################################################################################################################################
 # 
-# Name:
-# SID:
-# Exam Date:
-# Module:
+# Name: Thanit Wongmasa
+# SID: 740096162
+# Exam Date: 27 March 2025
+# Module: BEMM458_J_2_202425
 # Github link for this assignment:  
 #
 # ######################################################################################################################################################
@@ -47,10 +47,18 @@ key_comments = {
     9: 'minor'
 }
 
-# Write your search code here and provide comments. 
-
 # Initialize an empty list to store (start, end) positions
 my_list = []
+
+# Write your search code here and provide comments. 
+# For loop all value in dictionary
+for key, comment in key_comments.items():
+    # find start location
+    startIndex = customer_feedback.find(comment)
+    if startIndex != -1:
+        # find end location by start + lenght
+        endIndex = startIndex + len(comment)
+        my_list.append((startIndex, endIndex))
 
 ##########################################################################################################################################################
 
@@ -60,17 +68,30 @@ my_list = []
 # that will take the values and return the metric needed. Use the first two and last two digits of your ID number as the input values.
 
 # Insert first two digits of ID number here:
-# Insert last two digits of ID number here:
+firstTwoDigits = 74
+lastTwoDigits = 62
 
 # Write your code for Operating Profit Margin
+def operatingProfitMargin(operatingIncome, revenue):
+    return (operatingIncome / revenue) * 100
 
 # Write your code for Revenue per Customer
+def revenuePerCustomer(totalRevenue, totalCustomer):
+    return totalRevenue / totalCustomer
 
 # Write your code for Customer Churn Rate
+def customerChurnRate(customerLost, totalCustomers):
+    return (customerLost / totalCustomers) * 100
 
 # Write your code for Average Order Value
+def averageOrderValue(totalRevenue, totalOrder):
+    return totalRevenue / totalOrder
 
 # Call your designed functions here
+operatingProfitMargin(firstTwoDigits, lastTwoDigits)
+revenuePerCustomer(firstTwoDigits, lastTwoDigits)
+customerChurnRate(firstTwoDigits, lastTwoDigits)
+averageOrderValue(firstTwoDigits, lastTwoDigits)
 
 ##########################################################################################################################################################
 
@@ -106,17 +127,14 @@ import random
 import matplotlib.pyplot as plt
 
 # Generate 100 random numbers between 1 and student id number
-max-value = integer(input("Enter your Student ID: "))
+max_value = int(input("Enter your Student ID: "))
 random_numbers = [random.randint(1, max_value) for i in range(0,100)]
 
 # Plotting the numbers in a line chart
-plt.plot(random_numbers, marker='O', markercolor='green', markeredgcolor='red', linestyle='--', lable='Random Numbers', color='blue');
-plt.title(Line Chart of 100 Random Numbers)
-plt.xlabel="Index"
-plt.ylabel="Random Number"
-plt.legend('---')
+plt.plot(random_numbers, marker='o', markerfacecolor='green', markeredgecolor='red', linestyle='--', label='Random Numbers', color='blue')
+plt.title("Line Chart of 100 Random Numbers")
+plt.xlabel("Index")
+plt.ylabel("Random Number")
+plt.legend()
 plt.grid(True)
 plt.show()
-
-
-
